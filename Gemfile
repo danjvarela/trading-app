@@ -46,6 +46,8 @@ group :development, :test do
   gem "standard"
 
   gem "dotenv-rails", require: "dotenv/rails-now"
+
+  gem "rspec-rails", "~> 6.0.0"
 end
 
 group :development do
