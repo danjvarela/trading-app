@@ -50,6 +50,8 @@ group :development, :test do
   gem "dotenv-rails", require: "dotenv/rails-now"
 
   gem "rspec-rails", "~> 6.0.0"
+
+  gem "factory_bot_rails"
 end
 
 group :development do
@@ -69,4 +71,6 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+
+  gem 'database_cleaner-active_record'
 end
