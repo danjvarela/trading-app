@@ -51,7 +51,7 @@ class UsersController < ApplicationController
   end
 
   def get_user_types
-    @user_types = User.types.map { |type| [type.humanize, type] }
+    @user_types = User.user_types.keys.map { |type| [type.humanize, type] }
   end
 
   def user_params_with_optional_password

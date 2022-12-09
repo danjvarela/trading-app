@@ -4,7 +4,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :validatable
 
-  def self.types
-    ["admin", "trader"]
-  end
+  enum :user_type, {trader: 0, admin: 1}
 end
