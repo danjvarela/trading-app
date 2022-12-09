@@ -52,6 +52,7 @@ group :development, :test do
   gem "rspec-rails", "~> 6.0.0"
 
   gem "factory_bot_rails"
+  gem "rails-controller-testing"
 end
 
 group :development do
@@ -63,7 +64,7 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   gem "spring"
-  gem 'spring-commands-rspec'
+  gem "spring-commands-rspec"
 end
 
 group :test do
@@ -72,5 +73,5 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 
-  gem 'database_cleaner-active_record'
+  gem "database_cleaner-active_record"
 end

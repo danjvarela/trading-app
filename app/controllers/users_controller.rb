@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
   before_action :get_user, only: [:show, :edit, :update, :destroy]
   before_action :get_user_types, only: [:new, :edit, :create, :update]
-  before_action :prevent_create_update, only: [:create, :update]
+  before_action :prevent_non_admin
 
   def index
     @users = User.all
@@ -60,7 +61,7 @@ class UsersController < ApplicationController
     user_params
   end
 
-  def prevent_create_update
-    redirect_to root_path unless current_user == "admin"
+  def prevent_non_admin
+    redirect_to root_path unless current_user.user_type == "admin"
   end
 end
