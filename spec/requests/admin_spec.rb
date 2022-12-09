@@ -59,12 +59,10 @@ RSpec.describe "Admin", type: :request do
   end
 
   describe "PUT /custom/users/:id" do
-    context "with correct parameters" do
-      it "updates a user and redirects to the root_path" do
-        put user_path(user), params: {user: user_attributes}
-        expect(response).to redirect_to(root_path)
-        expect(User.find(user.id).email).to eq(user_attributes[:email])
-      end
+    it "updates a user and redirects to the root_path" do
+      put user_path(user), params: {user: user_attributes}
+      expect(response).to redirect_to(root_path)
+      expect(User.find(user.id).email).to eq(user_attributes[:email])
     end
   end
 
@@ -72,7 +70,7 @@ RSpec.describe "Admin", type: :request do
     it "deletes a user and redirects to root_path" do
       created_user = user
       before_count = User.count
-      delete user_path(user)
+      delete user_path(created_user)
       expect(User.count).to eq(before_count - 1)
       expect(response).to redirect_to(root_path)
     end
